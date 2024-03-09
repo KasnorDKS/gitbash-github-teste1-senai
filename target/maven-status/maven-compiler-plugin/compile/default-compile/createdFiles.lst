@@ -1,0 +1,4 @@
+com\mainbooks\controller\LivroController.class
+com\mainbooks\MainApplication.class
+com\mainbooks\repository\LivroRepository.class
+com\mainbooks\model\Livro.class

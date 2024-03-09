@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Livros</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+
+        a {
+            display: inline-block;
+            text-align: center;
+
+            color: #4962d1;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+            color: #3d3883;
+        }
+        button a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+<h1>Lista de Livros</h1>
+<table>
+    <tr>
+        <th>Código</th>
+        <th>Título</th>
+        <th>Autor</th>
+        <th>ISBN</th>
+        <th>Editora</th>
+        <th>Editar</th>
+        <th>Excluir</th>
+    </tr>
+    <tr th:each="livro : ${livros}">
+        <td th:text="${livro.codigo}"></td>
+        <td th:text="${livro.titulo}"></td>
+        <td th:text="${livro.autor}"></td>
+        <td th:text="${livro.isbn}"></td>
+        <td th:text="${livro.editora}"></td>
+        <td><a th:href="@{/livros/editar/{id}(id=${livro.id})}">Editar</a></td>
+        <td><a th:href="@{/livros/excluir/{id}(id=${livro.id})}">Excluir</a></td>
+    </tr>
+</table>
+<button><a href="/livros/novo">Novo Livro</a></button>
+</body>
+</html>
